@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jshint src/tests/tests.js"
+    "test": "node src/tests/*.test.js | tap-bunny"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/FAC-Sixteen/week5-trains#readme",
   "devDependencies": {
-    "jshint": "^2.10.2"
+    "jshint": "^2.10.2",
+    "tap-bunny": "^1.0.4",
+    "tape": "^4.10.1"
   }
 }
