@@ -1,0 +1,19 @@
+{
+  "name": "week5-trains",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAC-Sixteen/week5-trains.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FAC-Sixteen/week5-trains/issues"
+  },
+  "homepage": "https://github.com/FAC-Sixteen/week5-trains#readme"
+}
