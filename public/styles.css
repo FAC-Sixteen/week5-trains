@@ -42,8 +42,13 @@ h1 {
   border-bottom: 1px dotted hsl(40, 100%, 50%);
 }
 
+.dot-spacing {
+  border-bottom: 1px dotted hsl(40, 100%, 50%);
+  margin-bottom: 0.2em;
+}
+
 .train-container {
   font-size: 0.8em;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
 }
