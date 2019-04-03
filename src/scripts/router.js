@@ -5,7 +5,10 @@ const router = (req, res) => {
         handler.handleHomeRoute(req, res)
         // res.writeHead(200, {'content-type': 'text/html'})
         // res.end('trains trains trains')
-    }else{
+    }else if(2 ===2){
+        handler.handleOtherRoute(req, res)
+    }
+    else{
         res.writeHead(404);
         res.end('404 not found')
     }
