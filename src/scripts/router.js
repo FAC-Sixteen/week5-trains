@@ -5,7 +5,10 @@ const router = (req, res) => {
         handler.handleHomeRoute(req, res)
         // res.writeHead(200, {'content-type': 'text/html'})
         // res.end('trains trains trains')
-    }else if(2 ===2){
+    } else if (req.url === '/default') {
+        handler.handleDefaultStation(req, res)
+    }
+    else if(2 ===2){
         handler.handleOtherRoute(req, res)
     }
     else{

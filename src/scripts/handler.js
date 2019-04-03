@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const request = require('./request.js')
 
 const handleHomeRoute = (req, res) => {
     const filePath = path.join(__dirname, '..', '..', 'public', 'index.html');
@@ -42,9 +43,23 @@ const handleOtherRoute = (req, res) => {
     })
 }
 
+const handleDefaultStation = (req, res) => {
+    request('https://api.tfl.gov.uk/StopPoint/940GZZLUFPK/arrivals', (err, response) => {
+        if (err) {
+            res.writeHead(500, {'Content-Type': 'text/html'});
+            res.end('<h1>Sorry, problem with TFL</h1>');
+            return
+        } else {
+            res.writeHead(200, {'Content-Type': 'application/json'});
+            res.end(JSON.stringify(response));
+        }
+    })
+}
+
 
 
 module.exports = {
     handleHomeRoute,
-    handleOtherRoute
+    handleOtherRoute,
+    handleDefaultStation
 }

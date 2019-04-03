@@ -16,8 +16,8 @@ const apiRequest = (url, cb) => {
       });
     }
 
-apiRequest('https://api.tfl.gov.uk/StopPoint/940GZZLUFPK/arrivals', (err, res) => {
-    console.log(res)
-})
+// apiRequest('https://api.tfl.gov.uk/StopPoint/940GZZLUFPK/arrivals', (err, res) => {
+//     console.log(res)
+// })
 
 module.exports = apiRequest ;
