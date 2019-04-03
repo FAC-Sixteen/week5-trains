@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/scripts/server.js",
     "test": "jshint src/tests/tests.js"
   },
   "repository": {
