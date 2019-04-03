@@ -43,7 +43,7 @@ h1 {
 }
 
 .dot-spacing {
-  border-bottom: 1px dotted hsl(40, 100%, 50%);
+  border-bottom: 2px dotted hsl(40, 100%, 50%);
   margin-bottom: 0.2em;
 }
 
