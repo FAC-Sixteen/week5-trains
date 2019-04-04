@@ -55,7 +55,8 @@ const handleDefaultStation = (req, res) => {
       } else {
         res.writeHead(200, { "Content-Type": "application/json" });
         sortData(response);
-        res.end(JSON.stringify(response));
+        const result = sortData(response);
+        res.end(JSON.stringify(result));
       }
     }
   );

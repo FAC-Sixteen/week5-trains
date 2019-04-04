@@ -33,14 +33,11 @@ const sortData = json => {
     return thing;
   });
 
-  //   console.log(inboundTrains);
-
   let trains = {
     inbound: inboundTrains,
     outbound: outboundTrains
   };
-
-  console.log(trains);
+  return trains;
 };
 
 module.exports = sortData;
