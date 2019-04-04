@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="public/styles.css" />
   </head>
   <body>
-    <header><h1>Train Departures</h1></header>
     <main>
+      <h1>Train Departures</h1>
       <form class="station-input" id="station-form">
         <label for="user-input">Station name:</label>
         <input
@@ -30,13 +30,19 @@
         <button type="submit" class="input-submit-button" id="submit-button">
           <i class="fas fa-search"></i>
         </button>
-        <button type="button" class="refresh-button">
+        <button type="button" class="refresh-button" id="refresh-button">
           <i class="fas fa-sync-alt"></i>
         </button>
       </form>
       <div class="departure-times-container">
-        <div class="inbound"></div>
-        <div class="outbound"></div>
+        <div class="inbound">
+          <h2>Inbound</h2>
+          <div class="inbound-container"></div>
+        </div>
+        <div class="outbound">
+          <h2>Outbound</h2>
+          <div class="outbound-container"></div>
+        </div>
       </div>
       <div class="clock"></div>
     </main>

@@ -1,34 +1,35 @@
+let latestInput = "Finsbury Park";
+
 const defaultStation = () => {
   fetch("/default")
     .then(res => res.json())
-    .then(json => displayStationData(json));
+    .then(json => populateDom(json));
 };
 
-const displayStationData = data => {
-  // console.log("default is working");
-  // console.log(data);
-  populateDom(data);
+const searchStation = string => {
+  const endpoint = `/query=${string}`;
+  fetch(endpoint)
+    .then(res => res.json())
+    .then(json => populateDom(json));
 };
 
 defaultStation();
 setInterval(getTime, 1000);
 
-const button = document.querySelector("#submit-button");
+const submitButton = document.querySelector("#submit-button");
 const input = document.querySelector("#user-input");
 
-button.addEventListener("click", e => {
+submitButton.addEventListener("click", e => {
   e.preventDefault();
-  // console.log("event listener happening");
+  console.log("searching...");
   const value = input.value;
-  const endpoint = `/query=${value}`;
-  // console.log("this is query endpoint:", endpoint);
-  const inboundContainers = document.getElementsByClassName("inbound")[0];
-  const outboundContainers = document.getElementsByClassName("outbound")[0];
-  while (inboundContainers.hasChildNodes())
-    inboundContainers.removeChild(inboundContainers.firstChild);
-  while (outboundContainers.hasChildNodes())
-    outboundContainers.removeChild(outboundContainers.firstChild);
-  fetch(endpoint)
-    .then(res => res.json())
-    .then(json => displayStationData(json));
+  latestInput = value;
+  searchStation(value);
+});
+
+const refreshButton = document.querySelector("#refresh-button");
+
+refreshButton.addEventListener("click", () => {
+  console.log("refreshing...", latestInput);
+  searchStation(latestInput);
 });
