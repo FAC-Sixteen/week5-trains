@@ -33,39 +33,27 @@ button.addEventListener("click", e => {
     .then(json => displayStationData(json));
 });
 
-const testObject = {
-  inbound: [
-    {
-      lineName: "victoria",
-      destinationName: "seven sisters",
-      timeToStation: 67
-    },
-    {
-      lineName: "victoria",
-      destinationName: "sevsdsters",
-      timeToStation: 637
-    },
-    {
-      lineName: "victoria",
-      destinationName: "sdfushers",
-      timeToStation: 6456
-    }
-  ],
-  outbound: [
-    {
-      lineName: "piccadilly",
-      destinationName: "askuhdas",
-      timeToStation: 63
-    },
-    {
-      lineName: "piccadilly",
-      destinationName: "ss",
-      timeToStation: 567
-    },
-    {
-      lineName: "piccadilly",
-      destinationName: "syyyeeee",
-      timeToStation: 635
-    }
-  ]
-};
+input.addEventListener("input", e => {
+  e.preventDefault();
+  const value = input.value;
+  const endpoint = `/autocomplete=${value}`;
+  fetch(endpoint)
+    .then(res => res.json())
+    .then(json => fillAutocomplete(json))
+})
+
+const datalist = document.getElementById('autocomplete')
+
+const fillAutocomplete = (json) => {
+  while (datalist.hasChildNodes())
+    datalist.removeChild(datalist.firstChild);
+  for (let i = 0; i < json.length; i++) {
+  const optionElem = document.createElement("option");
+  optionElem.textContent = json[i];
+  optionElem.setAttribute(
+    "aria-label",
+    "list option: " + optionElem.textContent
+  );
+    datalist.appendChild(optionElem);
+  }
+}
