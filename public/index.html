@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Train Departures</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=VT323"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="public/normalise.css" />
-    <link rel="stylesheet" href="public/styles.css" />
-  </head>
 
-  <body>
-    <header><h1>Train Departures</h1></header>
-    <main>
-      <form class="station-input">
-        <label for="user-input">Station name:</label>
-        <input
-          type="text"
-          class="station-input__user-input"
-          id="user-input"
-          value="Finsbury Park"
-        />
-      </form>
-      <div class="departure-times-container">
-        <div class="inbound">
-          <h2>Inbound:</h2>
-        </div>
-        <div class="outbound">
-          <h2>Outbound:</h2>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Train Departures</title>
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" />
+  <link rel="stylesheet" href="public/normalise.css" />
+  <link rel="stylesheet" href="public/styles.css" />
+</head>
+
+<body>
+  <main>
+    <h1>Train Departures</h1>
+    <form class="station-input">
+      <label for="user-input">Station name:</label>
+      <input type="text" class="station-input__user-input" id="user-input" value="Finsbury Park" />
+    </form>
+    <div class="departure-times-container">
+      <div class="inbound">
+        <h2>Inbound:</h2>
       </div>
-    </main>
-    <script src="/public/populateDom.js"></script>
-    <script src="/public/script.js"></script>
-  </body>
+      <div class="outbound">
+        <h2>Outbound:</h2>
+      </div>
+    </div>
+  </main>
+  <script src="/public/populateDom.js"></script>
+  <script src="/public/script.js"></script>
+</body>
+
 </html>
