@@ -27,6 +27,11 @@ const appendItems = (train, element) => {
 const populateDom = data => {
   inboundContainer.innerHTML = "";
   outboundContainer.innerHTML = "";
+  if (data.error == "Error") {
+    inboundContainer.innerHTML = "Error: No such station";
+    outboundContainer.innerHTML = "Error: No such station";
+    return;
+  }
   data.inbound.forEach(train => appendItems(train, inboundContainer));
   data.outbound.forEach(train => appendItems(train, outboundContainer));
 };
