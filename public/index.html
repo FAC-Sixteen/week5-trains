@@ -12,9 +12,7 @@
   </head>
 
   <body>
-    <header>
-      <h1>Train Departures</h1>
-    </header>
+    <header><h1>Train Departures</h1></header>
     <main>
       <form class="station-input">
         <label for="user-input">Station name:</label>
@@ -28,22 +26,19 @@
       <div class="departure-times-container">
         <div class="inbound">
           <h2>Inbound:</h2>
-          <div class="train-container">
-            <p>Dummy inbound train</p>
-            <div class="dot-spacing"></div>
-            <p>2mins</p>
-          </div>
+          <div class="train-container"></div>
+          <div class="train-container"></div>
+          <div class="train-container"></div>
         </div>
         <div class="outbound">
           <h2>Outbound:</h2>
-          <div class="train-container">
-            <p>Dummy outbound train</p>
-            <div class="dot-spacing"></div>
-            <p>10mins</p>
-          </div>
+          <div class="train-container"></div>
+          <div class="train-container"></div>
+          <div class="train-container"></div>
         </div>
       </div>
     </main>
+    <script src="/public/populateDom.js"></script>
     <script src="/public/script.js"></script>
   </body>
 </html>
