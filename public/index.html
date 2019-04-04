@@ -1,25 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Train Departures</title>
-    <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet" />
-    <link rel="stylesheet" href="/public/normalise.css" />
-    <link rel="stylesheet" href="/public/styles.css" />
-</head>
+    <link
+      href="https://fonts.googleapis.com/css?family=VT323"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="public/normalise.css" />
+    <link rel="stylesheet" href="public/styles.css" />
+  </head>
 
-<body>
-    <h1>Train Departures</h1>
-    <form class="station-input">
+  <body>
+    <header>
+      <h1>Train Departures</h1>
+    </header>
+    <main>
+      <form class="station-input">
         <label for="user-input">Station name:</label>
-        <input type="text" class="station-input__user-input" id="user-input" value="Finsbury Park" />
-    </form>
-    <div class="departure-times-container">
-        <div class="inbound"></div>
-        <div class="outbound"></div>
-    </div>
-    <script src='/public/script.js'></script>
-</body>
-
+        <input
+          type="text"
+          class="station-input__user-input"
+          id="user-input"
+          value="Finsbury Park"
+        />
+      </form>
+      <div class="departure-times-container">
+        <div class="inbound">
+          <h2>Inbound:</h2>
+          <div class="train-container">
+            <p>Dummy inbound train</p>
+            <div class="dot-spacing"></div>
+            <p>2mins</p>
+          </div>
+        </div>
+        <div class="outbound">
+          <h2>Outbound:</h2>
+          <div class="train-container">
+            <p>Dummy outbound train</p>
+            <div class="dot-spacing"></div>
+            <p>10mins</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/public/script.js"></script>
+  </body>
 </html>

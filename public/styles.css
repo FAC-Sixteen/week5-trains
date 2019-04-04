@@ -3,4 +3,52 @@ body {
   color: hsl(40, 100%, 50%);
   font-family: "VT323", monospace;
   font-size: 2em;
+  padding: 0.25em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.station-input__user-input {
+  background-color: inherit;
+  /* padding: 0.125em; */
+  border: none;
+  border-bottom: 1px dotted hsl(40, 100%, 50%);
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.departure-times-container {
+  margin-top: 0.25em;
+  border: 1px dotted hsl(40, 100%, 50%);
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.inbound,
+.outbound {
+  min-height: 2em;
+  background-color: inherit;
+  padding: 0.25em;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.inbound {
+  border-bottom: 1px dotted hsl(40, 100%, 50%);
+}
+
+.dot-spacing {
+  border-bottom: 2px dotted hsl(40, 100%, 50%);
+  margin-bottom: 0.2em;
+}
+
+.train-container {
+  font-size: 0.8em;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
 }
