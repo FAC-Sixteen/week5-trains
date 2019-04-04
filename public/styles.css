@@ -20,6 +20,16 @@ h1 {
   margin: 0.5em 0;
 }
 
+.station-input {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.buttons-container {
+  margin: 0.5em 0 0 0.5em;
+}
+
 .station-input__user-input {
   background-color: inherit;
   box-sizing: border-box;
@@ -39,8 +49,6 @@ h1 {
 
 .input-submit-button,
 .refresh-button {
-  /* height: 3em; */
-  /* width: 3em; */
   background-color: inherit;
   color: inherit;
   border: none;
@@ -89,6 +97,8 @@ h1 {
 }
 
 .train-container {
+  display: flex;
+  align-items: flex-end;
   font-size: 0.8em;
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -100,6 +110,7 @@ h1 {
 }
 
 @media (min-width: 600px) {
+
   .inbound,
   .outbound {
     width: 600px;
