@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const request = require("./request.js");
 const sortData = require("./sortData.js");
+const getStationId = require("./getStationId.js");
 
 const handleHomeRoute = (req, res) => {
   const filePath = path.join(__dirname, "..", "..", "public", "index.html");
@@ -62,8 +63,35 @@ const handleDefaultStation = (req, res) => {
   );
 };
 
+const handleQuery = (req, res) => {
+  const query = req.url.split("=")[1];
+  fs.readFile(__dirname + "/stations.json", (err, file) => {
+    if (err) {
+      res.writeHead(500, { "Content-Type": "text/html" });
+      res.end("<h1>Sorry, problem with TFL</h1>");
+      return;
+    } else {
+      const stationId = getStationId(JSON.parse(file), query);
+      const url = `https://api.tfl.gov.uk/StopPoint/${stationId}/arrivals`;
+      request(url, (err, response) => {
+        if (err) {
+          res.writeHead(500, { "Content-Type": "text/html" });
+          res.end("<h1>Sorry, problem with TFL</h1>");
+          return;
+        } else {
+          res.writeHead(200, { "Content-Type": "application/json" });
+          sortData(response);
+          const result = sortData(response);
+          res.end(JSON.stringify(result));
+        }
+      });
+    }
+  });
+};
+
 module.exports = {
   handleHomeRoute,
   handleOtherRoute,
-  handleDefaultStation
+  handleDefaultStation,
+  handleQuery
 };

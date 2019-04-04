@@ -25,6 +25,12 @@ const appendItems = (train, element) => {
 };
 
 const populateDom = data => {
+  const titleInbound = document.createElement("h2");
+  titleInbound.textContent = "Inbound:";
+  inboundContainer.appendChild(titleInbound);
+  const titleOutbound = document.createElement("h2");
+  titleOutbound.textContent = "Outbound:";
+  outboundContainer.appendChild(titleOutbound);
   data.inbound.forEach(train => appendItems(train, inboundContainer));
   data.outbound.forEach(train => appendItems(train, outboundContainer));
 };

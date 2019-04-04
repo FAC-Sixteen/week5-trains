@@ -11,7 +11,7 @@ const sortData = json => {
 
   const timeConverter = int => {
     const mins = Math.floor(int / 60);
-    console.log(mins);
+    // console.log(mins);
     return mins === 0 ? "due" : mins + (mins === 1 ? "min" : "mins");
   };
 
