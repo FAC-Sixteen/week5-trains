@@ -29,12 +29,34 @@ h1 {
   font-family: inherit;
   font-size: inherit;
   margin: 0.5em 0;
-  padding: 0.20em;
+  padding: 0.2em;
 }
 
 .station-input__user-input:focus {
   outline: none;
   border: 3px dotted hsl(40, 100%, 50%);
+}
+
+.input-submit-button,
+.refresh-button {
+  /* height: 3em; */
+  /* width: 3em; */
+  background-color: inherit;
+  color: inherit;
+  border: none;
+  font-size: 0.8em;
+  width: 2em;
+  transition: all 0.2s ease;
+}
+
+.input-submit-button:hover,
+.refresh-button:hover {
+  transform: scale(1.5);
+}
+
+.input-submit-button:active,
+.refresh-button:active {
+  transform: scale(1);
 }
 
 .departure-times-container {
@@ -78,7 +100,6 @@ h1 {
 }
 
 @media (min-width: 600px) {
-
   .inbound,
   .outbound {
     width: 600px;

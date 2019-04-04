@@ -7,6 +7,12 @@
       href="https://fonts.googleapis.com/css?family=VT323"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="public/normalise.css" />
     <link rel="stylesheet" href="public/styles.css" />
   </head>
@@ -21,11 +27,12 @@
           id="user-input"
           value="Finsbury Park"
         />
-        <button
-          type="submit"
-          class="input-submit-button"
-          id="submit-button"
-        ></button>
+        <button type="submit" class="input-submit-button" id="submit-button">
+          <i class="fas fa-search"></i>
+        </button>
+        <button type="button" class="refresh-button">
+          <i class="fas fa-sync-alt"></i>
+        </button>
       </form>
       <div class="departure-times-container">
         <div class="inbound"></div>
