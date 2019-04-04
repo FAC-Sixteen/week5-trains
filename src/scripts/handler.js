@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const request = require("./request.js");
 const sortData = require("./sortData.js");
+const getStationId = require("./getStationId.js");
 
 const handleHomeRoute = (req, res) => {
   const filePath = path.join(__dirname, "..", "..", "public", "index.html");
@@ -62,8 +63,24 @@ const handleDefaultStation = (req, res) => {
   );
 };
 
+const handleQuery = (req, res) => {
+  const query = req.url.split("=")[1];
+  request("https://api.tfl.gov.uk/StopPoint/Mode/Tube", (err, response) => {
+    if (err) {
+      res.writeHead(500, { "Content-Type": "text/html" });
+      res.end("<h1>Sorry, problem with TFL</h1>");
+      return;
+    } else {
+      console.log("handler happening");
+      const stationId = getStationId(response, query);
+      console.log(stationId);
+    }
+  });
+};
+
 module.exports = {
   handleHomeRoute,
   handleOtherRoute,
-  handleDefaultStation
+  handleDefaultStation,
+  handleQuery
 };
