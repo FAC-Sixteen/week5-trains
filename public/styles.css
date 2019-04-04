@@ -1,31 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: hsl(30, 10%, 10%);
   color: hsl(40, 100%, 50%);
   font-family: "VT323", monospace;
   font-size: 2em;
   padding: 0.25em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
   font-size: 2em;
+  width: 100%;
+  text-align: left;
+  margin: 0.5em 0;
 }
 
 .station-input__user-input {
   background-color: inherit;
-  /* padding: 0.125em; */
-  border: none;
-  border-bottom: 1px dotted hsl(40, 100%, 50%);
+  box-sizing: border-box;
+  border: 3px solid hsl(30, 10%, 10%);
+  border-bottom: 3px dotted hsl(40, 100%, 50%);
   color: inherit;
   font-family: inherit;
   font-size: inherit;
+  margin: 0.5em 0;
+  padding: 0.20em;
+}
+
+.station-input__user-input:focus {
+  outline: none;
+  border: 3px dotted hsl(40, 100%, 50%);
 }
 
 .departure-times-container {
-  margin-top: 0.25em;
-  border: 1px dotted hsl(40, 100%, 50%);
+  margin: 1em 0;
+  border: 3px dotted hsl(40, 100%, 50%);
   color: inherit;
   font-family: inherit;
   font-size: inherit;
+  line-height: 1em;
+  width: 100%;
 }
 
 .inbound,
@@ -39,16 +58,29 @@ h1 {
 }
 
 .inbound {
-  border-bottom: 1px dotted hsl(40, 100%, 50%);
+  border-bottom: 3px dotted hsl(40, 100%, 50%);
 }
 
 .dot-spacing {
-  border-bottom: 2px dotted hsl(40, 100%, 50%);
-  margin-bottom: 0.2em;
+  border-bottom: 2px dotted hsl(30, 10%, 10%);
+  margin-bottom: 0.35em;
 }
 
 .train-container {
   font-size: 0.8em;
   display: grid;
   grid-template-columns: auto 1fr auto;
+}
+
+@media (min-width: 600px) {
+
+  .inbound,
+  .outbound {
+    width: 600px;
+  }
+
+  .dot-spacing {
+    border-bottom: 2px dotted hsl(40, 100%, 50%);
+    margin-bottom: 0.35em;
+  }
 }
