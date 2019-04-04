@@ -1,6 +1,6 @@
 // const trainContainers = document.getElementsByClassName("train-container");
-const inboundContainer = document.querySelector(".inbound");
-const outboundContainer = document.querySelector(".outbound");
+const inboundContainer = document.querySelector(".inbound-container");
+const outboundContainer = document.querySelector(".outbound-container");
 
 const appendItems = (train, element) => {
   const firstChildContent = `${
@@ -25,15 +25,10 @@ const appendItems = (train, element) => {
 };
 
 const populateDom = data => {
-  const titleInbound = document.createElement("h2");
-  titleInbound.textContent = "Inbound:";
-  inboundContainer.appendChild(titleInbound);
-  const titleOutbound = document.createElement("h2");
-  titleOutbound.textContent = "Outbound:";
-  outboundContainer.appendChild(titleOutbound);
+  inboundContainer.innerHTML = "";
+  outboundContainer.innerHTML = "";
   data.inbound.forEach(train => appendItems(train, inboundContainer));
   data.outbound.forEach(train => appendItems(train, outboundContainer));
 };
 
-
-setInterval(getTime, 1000)
+setInterval(getTime, 1000);
