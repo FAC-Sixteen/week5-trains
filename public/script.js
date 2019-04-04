@@ -8,12 +8,26 @@ const defaultStation = () => {
 };
 
 const displayStationData = data => {
-  console.log("default is working");
-  console.log(data);
-  populateDom(testObject);
+  // console.log("default is working");
+  // console.log(data);
+  populateDom(data);
 };
 
 window.onload = defaultStation();
+
+const button = document.querySelector("#submit-button");
+const input = document.querySelector("#user-input");
+
+button.addEventListener("click", e => {
+  e.preventDefault();
+  console.log("event listener happening");
+  const value = input.value;
+  const endpoint = `/query=${value}`;
+  console.log("this is query endpoint:", endpoint);
+  fetch(endpoint)
+    .then(res => res.json())
+    .then(json => displayStationData(json));
+});
 
 const testObject = {
   inbound: [
