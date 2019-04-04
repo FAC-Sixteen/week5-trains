@@ -28,3 +28,6 @@ const populateDom = data => {
   data.inbound.forEach(train => appendItems(train, inboundContainer));
   data.outbound.forEach(train => appendItems(train, outboundContainer));
 };
+
+
+setInterval(getTime, 1000)

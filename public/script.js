@@ -9,4 +9,5 @@ const displayStationData = data => {
   populateDom(data);
 };
 
-window.onload = defaultStation();
+setInterval(getTime, 1000)
+defaultStation();
