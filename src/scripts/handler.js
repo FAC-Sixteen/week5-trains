@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const request = require("./request.js");
+const sortData = require("./sortData.js");
 
 const handleHomeRoute = (req, res) => {
   const filePath = path.join(__dirname, "..", "..", "public", "index.html");
@@ -53,6 +54,7 @@ const handleDefaultStation = (req, res) => {
         return;
       } else {
         res.writeHead(200, { "Content-Type": "application/json" });
+        sortData(response);
         res.end(JSON.stringify(response));
       }
     }

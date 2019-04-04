@@ -7,7 +7,7 @@ const router = (req, res) => {
     // res.end('trains trains trains')
   } else if (req.url === "/default") {
     handler.handleDefaultStation(req, res);
-  } else if (2 === 2) {
+  } else if (req.url.includes("/public/")) {
     handler.handleOtherRoute(req, res);
   } else {
     res.writeHead(404);
