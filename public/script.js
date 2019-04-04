@@ -33,3 +33,26 @@ refreshButton.addEventListener("click", () => {
   console.log("refreshing...", latestInput);
   searchStation(latestInput);
 });
+input.addEventListener("input", e => {
+  e.preventDefault();
+  const value = input.value;
+  const endpoint = `/autocomplete=${value}`;
+  fetch(endpoint)
+    .then(res => res.json())
+    .then(json => fillAutocomplete(json));
+});
+
+const datalist = document.getElementById("autocomplete");
+
+const fillAutocomplete = json => {
+  while (datalist.hasChildNodes()) datalist.removeChild(datalist.firstChild);
+  for (let i = 0; i < json.length; i++) {
+    const optionElem = document.createElement("option");
+    optionElem.textContent = json[i];
+    optionElem.setAttribute(
+      "aria-label",
+      "list option: " + optionElem.textContent
+    );
+    datalist.appendChild(optionElem);
+  }
+};

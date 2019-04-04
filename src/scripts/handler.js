@@ -89,9 +89,33 @@ const handleQuery = (req, res) => {
   });
 };
 
+const handleAutocomplete = (req, res) => {
+  const query = req.url.split("=")[1].split("%20").join(' ').toLowerCase();
+  fs.readFile(__dirname + "/stations.json", (err, file) => {
+    if (err) {
+      res.writeHead(500, { "Content-Type": "text/html" });
+      res.end("<h1>Sorry, problem with TFL</h1>");
+      return;
+    } else {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      let array = [];
+      JSON.parse(file).map((arr) => {
+        // console.log(arr);
+        if(arr[0].toLowerCase().includes(query)){
+          array.push(arr[0]);
+        } ;
+      })
+      const uniqueStations = [...new Set(array)];
+      res.end(JSON.stringify(uniqueStations.slice(0, 5)))
+    }
+  })
+}
+  
+
 module.exports = {
   handleHomeRoute,
   handleOtherRoute,
   handleDefaultStation,
-  handleQuery
+  handleQuery,
+  handleAutocomplete
 };

@@ -9,6 +9,8 @@ const router = (req, res) => {
     handler.handleDefaultStation(req, res);
   } else if (req.url.includes("/query=")) {
     handler.handleQuery(req, res);
+  } else if (req.url.includes("/autocomplete=")) {
+    handler.handleAutocomplete(req, res);
   } else if (req.url.includes("/public/")) {
     handler.handleOtherRoute(req, res);
   } else {
