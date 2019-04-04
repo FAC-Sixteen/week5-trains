@@ -11,6 +11,7 @@ const displayStationData = data => {
 };
 
 window.onload = defaultStation();
+window.onload = setInterval(getTime, 1000);
 
 const button = document.querySelector("#submit-button");
 const input = document.querySelector("#user-input");
