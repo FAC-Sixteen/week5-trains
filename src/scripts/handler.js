@@ -65,15 +65,26 @@ const handleDefaultStation = (req, res) => {
 
 const handleQuery = (req, res) => {
   const query = req.url.split("=")[1];
-  request("https://api.tfl.gov.uk/StopPoint/Mode/Tube", (err, response) => {
+  fs.readFile(__dirname + "/stations.json", (err, file) => {
     if (err) {
       res.writeHead(500, { "Content-Type": "text/html" });
       res.end("<h1>Sorry, problem with TFL</h1>");
       return;
     } else {
-      console.log("handler happening");
-      const stationId = getStationId(response, query);
-      console.log(stationId);
+      const stationId = getStationId(JSON.parse(file), query);
+      const url = `https://api.tfl.gov.uk/StopPoint/${stationId}/arrivals`;
+      request(url, (err, response) => {
+        if (err) {
+          res.writeHead(500, { "Content-Type": "text/html" });
+          res.end("<h1>Sorry, problem with TFL</h1>");
+          return;
+        } else {
+          res.writeHead(200, { "Content-Type": "application/json" });
+          sortData(response);
+          const result = sortData(response);
+          res.end(JSON.stringify(result));
+        }
+      });
     }
   });
 };
