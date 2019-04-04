@@ -73,6 +73,11 @@ const handleQuery = (req, res) => {
     } else {
       const stationId = getStationId(JSON.parse(file), query);
       const url = `https://api.tfl.gov.uk/StopPoint/${stationId}/arrivals`;
+      if (stationId == null || stationId == undefined || stationId == "") {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "Error" }));
+        return;
+      }
       request(url, (err, response) => {
         if (err) {
           res.writeHead(500, { "Content-Type": "text/html" });
@@ -90,7 +95,11 @@ const handleQuery = (req, res) => {
 };
 
 const handleAutocomplete = (req, res) => {
-  const query = req.url.split("=")[1].split("%20").join(' ').toLowerCase();
+  const query = req.url
+    .split("=")[1]
+    .split("%20")
+    .join(" ")
+    .toLowerCase();
   fs.readFile(__dirname + "/stations.json", (err, file) => {
     if (err) {
       res.writeHead(500, { "Content-Type": "text/html" });
@@ -99,18 +108,17 @@ const handleAutocomplete = (req, res) => {
     } else {
       res.writeHead(200, { "Content-Type": "application/json" });
       let array = [];
-      JSON.parse(file).map((arr) => {
+      JSON.parse(file).map(arr => {
         // console.log(arr);
-        if(arr[0].toLowerCase().includes(query)){
+        if (arr[0].toLowerCase().includes(query)) {
           array.push(arr[0]);
-        } ;
-      })
+        }
+      });
       const uniqueStations = [...new Set(array)];
-      res.end(JSON.stringify(uniqueStations.slice(0, 5)))
+      res.end(JSON.stringify(uniqueStations.slice(0, 5)));
     }
-  })
-}
-  
+  });
+};
 
 module.exports = {
   handleHomeRoute,
