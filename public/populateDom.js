@@ -7,6 +7,25 @@ const appendItems = (train, element) => {
     train.lineName
   } line train to ${train.destinationName.replace(" Underground Station", "")}`;
 
+  const preDot = document.createElement("div");
+  preDot.textContent = "·";
+  preDot.classList = "pre-dot";
+  // if there's a status issue, add a class to change the dot colour
+
+  if (train.status !== "Good Service") preDot.classList.add("status-problem");
+
+  switch (train.status) {
+    case "Good Service":
+      preDot.classList.add("green-dot");
+      break;
+    case "Part Closure":
+    case "Severe Delays":
+      preDot.classList.add("red-dot");
+      break;
+    default:
+      preDot.classList.add("yellow-dot");
+  }
+
   const firstChild = document.createElement("p");
   firstChild.textContent = firstChildContent;
   const secondChild = document.createElement("div");
@@ -17,6 +36,7 @@ const appendItems = (train, element) => {
   const trainContainer = document.createElement("div");
   trainContainer.classList = "train-container";
 
+  trainContainer.appendChild(preDot);
   trainContainer.appendChild(firstChild);
   trainContainer.appendChild(secondChild);
   trainContainer.appendChild(thirdChild);
