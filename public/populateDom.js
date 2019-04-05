@@ -1,6 +1,14 @@
 // const trainContainers = document.getElementsByClassName("train-container");
 const inboundContainer = document.querySelector(".inbound-container");
 const outboundContainer = document.querySelector(".outbound-container");
+const lastUpdated = document.querySelector(".last-updated")
+
+const getUpdateDate = () => {
+  lastUpdated.textContent = "";
+  const now = new Date();
+  const timeWhenUpdated = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+  lastUpdated.textContent = "Last updated: " + buildTime()
+}
 
 const appendItems = (train, element) => {
   const firstChildContent = `${
@@ -54,6 +62,7 @@ const populateDom = data => {
   }
   data.inbound.forEach(train => appendItems(train, inboundContainer));
   data.outbound.forEach(train => appendItems(train, outboundContainer));
+  getUpdateDate();
 };
 
 setInterval(getTime, 1000);

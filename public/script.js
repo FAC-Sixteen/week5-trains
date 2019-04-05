@@ -41,9 +41,11 @@ submitButton.addEventListener("click", e => {
 });
 
 refreshButton.addEventListener("click", () => {
+
   console.log("refreshing...", latestInput);
   addClass(refreshButton, "button-active");
   searchStation(latestInput, removeClass, [refreshButton, "button-active"]);
+
 });
 input.addEventListener("input", e => {
   e.preventDefault();

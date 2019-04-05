@@ -65,7 +65,7 @@ const handleDefaultStation = (req, res) => {
         res.end("<h1>Sorry, problem with TFL</h1>");
         return;
       } else {
-        const preStatus = sortData(response);
+        const preStatus = sortData.sortData(response);
         // api request for lines
         request(
           "https://api.tfl.gov.uk/line/mode/tube/status",
@@ -105,9 +105,11 @@ const handleQuery = (req, res) => {
         res.writeHead(200, {
           "Content-Type": "application/json"
         });
-        res.end(JSON.stringify({
-          error: "Error"
-        }));
+        res.end(
+          JSON.stringify({
+            error: "Error"
+          })
+        );
         return;
       }
       request(url, (err, response) => {
@@ -118,7 +120,7 @@ const handleQuery = (req, res) => {
           res.end("<h1>Sorry, problem with TFL</h1>");
           return;
         } else {
-          const preStatus = sortData(response);
+          const preStatus = sortData.sortData(response);
           // api request for lines
           request(
             "https://api.tfl.gov.uk/line/mode/tube/status",
@@ -137,7 +139,6 @@ const handleQuery = (req, res) => {
               }
             }
           );
-
         }
       });
     }
