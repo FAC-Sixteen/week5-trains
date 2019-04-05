@@ -78,9 +78,9 @@ const handleDefaultStation = (req, res) => {
               res.writeHead(200, { "Content-Type": "application/json" });
               // with response, run status cleanser
               // add line status to preStatus
-              const newThing = sortStatus.sortStatus(preStatus, result);
+              const addStatus = sortStatus.sortStatus(preStatus, result);
 
-              res.end(JSON.stringify(newThing));
+              res.end(JSON.stringify(addStatus));
             }
           }
         );
@@ -118,12 +118,26 @@ const handleQuery = (req, res) => {
           res.end("<h1>Sorry, problem with TFL</h1>");
           return;
         } else {
-          res.writeHead(200, {
-            "Content-Type": "application/json"
-          });
-          sortData(response);
-          const result = sortData(response);
-          res.end(JSON.stringify(result));
+          const preStatus = sortData(response);
+          // api request for lines
+          request(
+            "https://api.tfl.gov.uk/line/mode/tube/status",
+            (er, result) => {
+              if (er) {
+                res.writeHead(500, { "Content-Type": "text/html" });
+                res.end("<h1>Sorry, problem with TFL</h1>");
+                return;
+              } else {
+                res.writeHead(200, { "Content-Type": "application/json" });
+                // with response, run status cleanser
+                // add line status to preStatus
+                const addStatus = sortStatus.sortStatus(preStatus, result);
+
+                res.end(JSON.stringify(addStatus));
+              }
+            }
+          );
+
         }
       });
     }
