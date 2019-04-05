@@ -133,6 +133,22 @@ h1 {
 }
 
 
+.button-active {
+  color: hsl(40, 100%, 70%);
+  animation-duration: 0.7s;
+  animation-name: rotate;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 @media (min-width: 600px) {
 
   .inbound,
