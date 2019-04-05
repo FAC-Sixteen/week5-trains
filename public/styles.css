@@ -91,6 +91,12 @@ h1 {
   border-bottom: 3px dotted hsl(40, 100%, 50%);
 }
 
+.pre-dot {
+  font-size: 3em;
+  width: 0.5em;
+  font-family: none;
+}
+
 .dot-spacing {
   border-bottom: 2px dotted hsl(30, 10%, 10%);
   margin-bottom: 0.35em;
@@ -101,7 +107,7 @@ h1 {
   align-items: flex-end;
   font-size: 0.8em;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 0.8em auto 1fr auto;
 }
 
 .clock {
@@ -109,8 +115,19 @@ h1 {
   font-size: 1.5em;
 }
 
-@media (min-width: 600px) {
+.green-dot {
+  color: hsl(100, 100%, 50%);
+}
 
+.yellow-dot {
+  color: hsl(60, 100%, 50%);
+}
+
+.red-dot {
+  color: hsl(0, 100%, 50%);
+}
+
+@media (min-width: 600px) {
   .inbound,
   .outbound {
     width: 600px;
