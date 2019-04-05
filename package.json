@@ -6,7 +6,8 @@
   "scripts": {
     "test": "tape src/tests/*.test.js | tap-bunny",
     "start": "node src/scripts/server.js",
-    "dev": "nodemon src/scripts/server.js"
+    "dev": "nodemon src/scripts/server.js",
+    "coverage": "nyc tape src/tests/*.test.js | tap-nyc"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,12 @@
   },
   "homepage": "https://github.com/FAC-Sixteen/week5-trains#readme",
   "devDependencies": {
+    "istanbul": "^0.4.5",
     "jshint": "^2.10.2",
     "nodemon": "^1.18.10",
+    "nyc": "^13.3.0",
     "tap-bunny": "^1.0.4",
+    "tap-nyc": "^1.0.3",
     "tape": "^4.10.1"
   }
 }
