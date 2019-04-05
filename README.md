@@ -18,7 +18,7 @@ Sylvia [@seabasshoang](https://github.com/seabasshoang)
 
 Anna B [@aniablaziak](https://github.com/aniablaziak)
 
---- 
+
 
 ## 🚇 Overview 
 
@@ -73,9 +73,11 @@ Save it the heroku link to your homepage!
 - [x] refresh button
 - [x] adding a clock to our GUI
 - [x] dropdown menu to search for departures from more stations
-- [ ] line status updates
+- [x] line status updates
 - [x] progressive mobile app!
+- [x] display last update on load and on click
 - [ ] clear input button 
+- [ ] add overground trains 
 
 ---
 
