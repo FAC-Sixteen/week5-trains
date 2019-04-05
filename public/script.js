@@ -30,7 +30,6 @@ submitButton.addEventListener("click", e => {
 const refreshButton = document.querySelector("#refresh-button");
 
 refreshButton.addEventListener("click", () => {
-  console.log("refreshing...", latestInput);
   searchStation(latestInput);
 });
 input.addEventListener("input", e => {
