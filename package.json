@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/FAC-Sixteen/week5-trains#readme",
   "devDependencies": {
-    "istanbul": "^0.4.5",
     "jshint": "^2.10.2",
     "nodemon": "^1.18.10",
     "nyc": "^13.3.0",
