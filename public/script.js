@@ -44,14 +44,11 @@ input.addEventListener("input", e => {
 const datalist = document.getElementById("autocomplete");
 
 const fillAutocomplete = json => {
-  while (datalist.hasChildNodes()) datalist.removeChild(datalist.firstChild);
-  for (let i = 0; i < json.length; i++) {
+  datalist.innerHTML = "";
+  json.forEach(item => {
     const optionElem = document.createElement("option");
-    optionElem.textContent = json[i];
-    optionElem.setAttribute(
-      "aria-label",
-      "list option: " + optionElem.textContent
-    );
+    optionElem.textContent = item;
+    optionElem.setAttribute("aria-label", "list option: " + item);
     datalist.appendChild(optionElem);
-  }
+  });
 };

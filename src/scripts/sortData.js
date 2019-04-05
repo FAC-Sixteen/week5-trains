@@ -9,29 +9,9 @@ const sortData = json => {
     .filter(train => train.direction === "outbound")
     .slice(0, 3);
 
-  const timeConverter = int => {
-    const mins = Math.floor(int / 60);
-    // console.log(mins);
-    return mins === 0 ? "due" : mins + (mins === 1 ? "min" : "mins");
-  };
+  const inboundTrains = mapTrains(inbound);
 
-  const inboundTrains = inbound.map(train => {
-    const thing = {
-      timeToStation: timeConverter(train.timeToStation),
-      lineName: train.lineName,
-      destinationName: train.destinationName
-    };
-    return thing;
-  });
-
-  const outboundTrains = outbound.map(train => {
-    const thing = {
-      timeToStation: timeConverter(train.timeToStation),
-      lineName: train.lineName,
-      destinationName: train.destinationName
-    };
-    return thing;
-  });
+  const outboundTrains = mapTrains(outbound);
 
   let trains = {
     inbound: inboundTrains,
@@ -40,4 +20,24 @@ const sortData = json => {
   return trains;
 };
 
-module.exports = sortData;
+const timeConverter = int => {
+  const mins = Math.floor(int / 60);
+  // console.log(mins);
+  return mins === 0 ? "due" : mins + (mins === 1 ? "min" : "mins");
+};
+
+const mapTrains = array => {
+  return array.map(train => {
+    return {
+      timeToStation: timeConverter(train.timeToStation),
+      lineName: train.lineName,
+      destinationName: train.destinationName
+    };
+  });
+};
+
+module.exports = {
+  sortData,
+  timeConverter,
+  mapTrains
+};
