@@ -132,11 +132,11 @@ h1 {
   color: hsl(0, 100%, 50%);
 }
 
-
 .button-active {
   color: hsl(40, 100%, 70%);
   animation-duration: 0.7s;
   animation-name: rotate;
+  transform-origin: center;
 }
 
 @keyframes rotate {
@@ -148,9 +148,7 @@ h1 {
   }
 }
 
-
 @media (min-width: 600px) {
-
   .inbound,
   .outbound {
     width: 600px;
