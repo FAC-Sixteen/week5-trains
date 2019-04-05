@@ -68,7 +68,6 @@ const handleDefaultStation = (req, res) => {
               res.writeHead(200, { "Content-Type": "application/json" });
               // with response, run status cleanser
               // add line status to preStatus
-              console.log(preStatus);
               const newThing = sortStatus.sortStatus(preStatus, result);
 
               res.end(JSON.stringify(newThing));

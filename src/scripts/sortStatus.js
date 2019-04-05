@@ -27,6 +27,6 @@ const sortStatus = (trains, lines) => {
 // console.log(statusArray(lineStatus));
 
 module.exports = {
-  lineStatus,
+  statusArray,
   sortStatus
 };
